@@ -208,12 +208,118 @@
           gärna rapportera in det till info@sfol.se.
         </p>
         <p>
-          Vi har idag ingen officiell process för att delta i sjäva
+          Vi har idag ingen officiell process för att delta i själva
           utvecklingsarbetet av ordlistan. Om du är intresserad av att
           bidra på detta sätt så får du gärna skicka ett mail till
           info@sfol.se - kanske kan vi hitta någonting att fixa med.
         </p>
 
+        <h1>Frågor om källkoden</h1>
+
+        <br />
+
+        <p><b>Vilken licens distribueras ordlistan under?</b></p>
+        <p>
+          GNU GPL version 3 eller senare.
+        </p>
+
+        <br />
+
+        <p><b>Var finns källkoden till ordlistan?</b></p>
+        <p>
+          Ordlistan distribueras som ett zip-arkiv, t.ex. med namnet
+          swedish-0.1.xpi. Om man packar upp arkivet finner man bl.a.
+          filerna sv.aff och sv.dic. Dessa båda filer definierar
+          ordlistan i ett format som kan förstås av
+          programkomponenten <a href="http://hunspell.sourceforge.net/">Hunspell</a>
+          som ingår i program som Firefox, Thunderbird, LibreOffice
+          m.fl.
+        </p>
+
+        <br />
+
+        <p><b>Jag såg i filen sv.dic att ordlistan bara innehåller
+        140000 ord. Många är dessutom konstiga och felstavade!</b></p>
+        <p>
+          Filen har ett mycket komplicerat format som beskrivs i
+          dokumentationen till Hunspell version 1.3. Den som försöker
+          gissa sig till vad innehållet i filen betyder kommer att
+          misstolka filen fullständigt. Tvärtemot vad många som inte
+          orkar läsa dokumentationen tror, så syns inte alla ord
+          explicit i filen. De ord som syns är ofta på grundform, men
+          inte alltid. Ja, de "ord" som syns är inte ens alltid
+          riktiga ord; de kan vara förkortningar, egennamn, fragment
+          av ord eller t.o.m. felstavningar. (Två exempel på det
+          sistnämnda är "repsekt" och "soppnedkast". De är inlagda
+          tillsammans med en spärrkod för att de ska rödmarkeras trots
+          att de skulle kunna tolkas som korrekta sammansättningar.)
+        </p>
+
+        <br />
+
+        <p><b>Fungerar ordlistan i andra program än Firefox?</b></p>
+        <p>
+          För att den ska fungera korrekt krävs att programmet
+          använder Hunspell version 1.3 eller senare. Äldre versioner
+          av Hunspell har begränsad funktionalitet och allvarliga
+          programfel som bl.a. orsakar felaktig hantering av
+          sammansättningar och rättstavningsförslag.
+        </p>
+
+        <br />
+
+        <p><b>Jag vill distribuera ordlistan tillsammans med ett annat
+        program för stavningskontroll. Är det möjligt?</b></p>
+        <p>
+          Detta är tillåtet förutsatt att licensvillkoren uppfylls.
+          För att resultatet ska bli bra, är det dock viktigt att
+          programmet är helt kompatibelt med Hunspell 1.3. Annars
+          måste man bearbeta ordlistan så att den fungerar optimalt i
+          programmet. Stavningskontroll av svensk text är betydligt
+          svårare än de flesta tror, så man bör definitivt låta bli
+          att försöka sig på att göra någon omfattande bearbetning om
+          man inte är expert. Om du trots allt distribuerar ordlistan
+          i bearbetad form eller tillsammans med ett program som den
+          inte är utformad för, så är det viktigt att du tydligt anger
+          att det rör sig om en bearbetad version som ordlistans
+          upphovsman inte är ansvarig för. Detta är f.ö. något som
+          ordlistans licens kräver.
+        </p>
+
+        <br />
+
+        <p><b>Jag vill distribuera en bearbetad version av ordlistan
+        tillsammans med en app som inte har med stavningskontroll att
+        göra. Är det möjligt?</b></p>
+        <p>
+          Det är teoretiskt möjligt, men i praktiken vore det galet
+          att försöka sig på något sådant. Det är oerhört svårt att
+          filtrera ut ord ur filen sv.dic på ett sätt som är
+          ändamålsenligt för någon som helst annan applikation. Därför
+          är det bättre att använda någon annan fri eller kommersiell
+          ordlista. Om du ändå gör det, så var snäll och ange tydligt
+          att det rör sig om en bearbetad version som ordlistans
+          upphovsman inte är ansvarig för.
+        </p>
+
+        <br />
+
+        <p><b>Jag behöver en specialanpassad ordlista som ska användas
+        i ett open source-program. Ska jag försöka bearbeta
+        källkodsfilen sv.dic?</b></p>
+        <p>
+          Nej! Den filen distribueras visserligen under GPL, men den
+          är inte avsedd för manuell redigering. Den har genererats
+          automatiskt utifrån ett oerhört omfattande råmaterial. Hör
+          av dig till ordlistans upphovsman och berätta vilket program
+          det gäller och vilka egenskaper ordlistan ska ha, så kan du
+          förmodligen få en ordlista som är korrekt konstruerad för
+          det specifika ändamålet. Om nödvändigt, så kan bearbetade
+          versioner av ordlistan även tillhandahållas under en annan
+          open source-licens. (Det finns även andra fria svenska
+          ordlistor som kanske passar bättre beroende på vad man vill
+          uppnå, t.ex. Wiktionary och Språkbankens SALDO.)
+        </p>
       </div>
     </div>
 
