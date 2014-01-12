@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Wrap all page content here -->
     <div id="wrap">
       <div class="container">
@@ -46,27 +46,174 @@
           </p>
         </div>
 
-        <h4>Varför inte använda SAOL eller någon annan riktig ordlista?</h4>
-        <p><strong>Svar:</strong>
-          Av två skäl. För det första så skall ordlistan kunna
-          distribueras under en fri licens, vilket ingen "riktig"
-          ordlista tillåter, och för det andra eftersom "riktiga"
-          ordlistor helt enkelt inte lämpar sig för den typ av
-          stavningskontroll som det finns inbyggt stöd för i Firefox.
+        <p><b>Varför rödmarkeras inte särskrivningar eller grammatikfel?</b></p>
+        <p>
+          Stavningskontrollen granskar ett ord i taget utan att ta
+          hänsyn till sammanhanget. Därför kan inte särskrivningar
+          eller andra grammatiska fel detekteras. Felstavade ord som
+          är identiska med något annat relativt vanligt ord kommer
+          inte heller att rödmarkeras.
         </p>
 
-        <hr />
+        <br />
 
-        <h4>Hur kan jag hjälpa till att förbättra ordlistan?</h4>
-        <p><strong>Svar:</strong>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Vivamus pulvinar fermentum leo, quis fringilla augue
-          consectetur ac. Nullam sem sem, placerat sit amet vulputate
-          interdum, adipiscing vitae ipsum. Nullam magna ipsum, tempor
-          eu luctus a, consectetur eu nibh. Etiam pretium gravida
-          turpis.
+        <p><b>Vissa felstavade ord rödmarkeras inte. Hur kan det komma sig?</b></p>
+        <p>
+          Felstavningar som kan tolkas som ett annat ord rödmarkeras
+          vanligtvis inte. T.ex. är "ända" felstavat i frasen "det
+          ända som återstår". Stavningskontrollen skickar ett ord i
+          taget till ordlistan. När ordlistan ombeds att avgöra ifall
+          "ända" är ett korrekt ord, så måste den svara ja eftersom
+          det är ett helt korrekt ord om än inte i just detta
+          sammanhang.
         </p>
-        
+
+        <br />
+
+        <p><b>Varför blir så många rättstavade namn rödmarkerade?</b></p>
+        <p>
+          För att ordlistan inte ska använda för mycket minne har
+          endast ett begränsat antal egennamn lagts in. En nackdel med
+          detta är förstås att texter som innehåller många ovanliga
+          egennamn kan få så pass många felaktiga rödmarkeringar att
+          man lätt missar eventuella korrekta rödmarkeringar.
+          Lösningen på detta problem är dock att man låter
+          rättstavningsprogrammet markera okända egennamn med en mer
+          neutral färg, t.ex. gult. (Denna enkla funktion finns dock
+          tyvärr ännu inte i Firefox.)
+        </p>
+
+        <br />
+
+        <p><b>Vissa sammansatta ord rödmarkeras. Varför det?</b></p>
+        <p>
+          Det finns oändligt många sammansatta svenska ord. Alla får
+          inte plats i ordlistan, så ett urval har gjorts. Ordlistan
+          hanterar många sammansättningar med hjälp av intrikata
+          regler för hur ord får sättas samman. Om
+          sammansättningsreglerna görs för generella, så godkänns
+          många felstavningar eftersom de kan tolkas som något
+          sammansatt ord. Därför hanteras vissa typer av
+          sammansättningar inte via regler utan genom att läggas in
+          explicit i ordlistan, och då har bara de vanligast
+          förekommande sammansatta orden tagit med.
+        </p>
+
+        <br />
+
+        <p><b>Ordlistan är felaktig, för den saknar vissa ord som finns i SAOL.</b></p>
+        <p>
+          Många korrekta ord, varav vissa finns i SAOL, har fullt
+          avsiktligt utelämnats ur ordlistan. Skälet är oftast att de
+          är lätta att stava till och relativt sällsynta i nutida
+          text, men samtidigt mycket lika andra ord som används
+          betydligt oftare. De flesta förekomsterna av sådana ord är
+          därför helt enkelt felstavningar av de vanligare orden. Som
+          exempel kan nämnas "väll", "fästig", "ula", "ör", "stuts"
+          och t.o.m. ord som "kockan", "uppsatts" och "minde". Tack
+          vare denna teknik hittar stavningskontrollen massor av
+          stavfel som en strikt SAOL-baserad ordlista skulle missa.
+          Tanken är att de som faktiskt använder de ovanliga men
+          lättstavade orden, som exempelvis "ula", knappast kan
+          förledas till att infoga stavfel p.g.a. rödmarkeringen.
+        </p>
+
+        <br />
+
+        <p><b>Ordlistan är felaktig, för den godkänner ord som inte godkänns av SAOL.</b></p>
+        <p>
+          Kan alla som tycker att ord som "elavtal", "app",
+          "fysikprov", "Stockholm", "Knutbybor",
+          "Västeråsförsamlingen", "tjugotrekronorsbiljett",
+          "trettiosjuåring", "Nilsson", "USB", "hd", "AIK", "zorb" och
+          "lägenhetsvisning" ska rödmarkeras räcka upp en hand? Inte
+          det? Men dessa och miljoner andra korrekta ord saknas i
+          SAOL, så det vore helt enkelt befängt att bygga
+          stavningskontrollen strikt på SAOL.
+        </p>
+
+        <br />
+
+        <p><b>Vissa ord som innehåller punkter, kolon eller bindestreck
+        rödmarkeras felaktigt. Varför?</b></p>
+        <p>
+          I en del program, t.ex. Firefox, rödmarkeras ord som
+          "ränte-", "bl.a." och "vd:ns". Eller, rättare sagt, "ränte",
+          "bl" och "ns" rödmarkeras. Skälet till detta är att
+          tokenizern (dvs. den komponent som avgör vilka tecken som
+          tillsammans bildar ett helt ord) i sådana program inte är
+          anpassad till svenska språket. Därför skickas inte hela
+          ordet utan bara ett fragment till stavningskontrollen,
+          vilket leder till att detta fragment rödmarkeras. Felet
+          ligger alltså i dessa program och inte i ordlistan. De som
+          önskar få en mer korrekt hantering av svenska språket bör
+          uppmuntra eller hjälpa utvecklarna av programmen ifråga att
+          rätta sin tokenizer.
+        </p>
+
+        <br />
+
+        <p><b>Varför rödmarkeras inte felstavningen "23-årigen"?</b></p>
+        <p>
+          I Firefox och vissa andra program ignoreras ord som
+          innehåller siffror, dvs. de skickas inte till ordlistan för
+          stavningskontroll. Vissa andra program, t.ex. Open Office,
+          ignorerar ord med siffror om man inte aktiverar en viss
+          inställning för detta. Detta är olyckligt för oss svenskar
+          som använder massvis med ord som innehåller siffror.
+          Ordlistan i sig har dock inga som helst problem att
+          stavningskontrollera ord med siffror.
+        </p>
+
+        <br />
+
+        <p><b>Varför saknas ordlistan en massa vanliga ord?</b></p>
+        <p>
+          Det gör den inte. Vissa ovanliga ord har dock utelämnats för
+          att spara minne eller för att de riskerar maskera stavfel av
+          vanligare ord. Om något tillnärmelsevis vanligt ord
+          rödmarkeras, så beror det på att det inte är den här
+          ordlistan som används eller på något fel i applikationen den
+          används i.
+        </p>
+
+        <br />
+
+        <p><b>Varför är ordlistan full av särskrivningar?</b></p>
+        <p>
+          Det är den inte. Den innehåller några
+          hundra <em>korrekta</em> särskrivningar, t.ex. "i akt" och
+          "här framme". Om sammansatta ord rödmarkeras och man
+          uppmanas till en felaktig särskrivning, så beror det på att
+          det inte är den här ordlistan som används eller på något fel
+          i applikationen den används i.
+        </p>
+
+        <br />
+
+        <p><b>Varför inte använda SAOL eller någon annan riktig ordlista?</b></p>
+        <p>
+          Dels av de skäl skäl som redan angivits på den här sidan;
+          SAOL lämpar sig inte för automatisk stavningskontroll. Men
+          även för att ordlistan skall kunna distribueras under en fri
+          licens, vilket ingen "riktig" ordlista tillåter.
+        </p>
+
+        <br />
+
+        <p><b>Hur kan jag hjälpa till att förbättra ordlistan?</b></p>
+        <p>
+          Om du hittat något fel med ordlistan, som inte kan förklaras
+          av de övriga svar på vanliga frågor som finns här, får du
+          gärna rapportera in det till info@sfol.se.
+        </p>
+        <p>
+          Vi har idag ingen officiell process för att delta i sjäva
+          utvecklingsarbetet av ordlistan. Om du är intresserad av att
+          bidra på detta sätt så får du gärna skicka ett mail till
+          info@sfol.se - kanske kan vi hitta någonting att fixa med.
+        </p>
+
       </div>
     </div>
 
